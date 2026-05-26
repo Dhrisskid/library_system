@@ -1,6 +1,9 @@
-.vscode/
-alembic.ini
-alembic/
 venv/
 __pycache__/
 .env
+.vscode/
+alembic/
+alembic.ini
+.Dockerfile
+.dockerignore
+.docker-compose.yml
