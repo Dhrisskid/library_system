@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
   lib:
     build: .
-    container_name: library
+    container_name: lms_lib
     env_file:
       - .env
     depends_on:
@@ -11,17 +9,22 @@ services:
         condition: service_healthy
     
   db:
-    image: mariadb:11
-    container_name: dB
+    image: mysql:8.0
+    container_name: lms_db
     ports:
-      -"3306:3306"
+      - "3307:3306"
+    env_file:
+      - .env
+    volumes:
+      - mysql_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "sqladmin", "ping" ,"-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pAllahu1*"]
       interval: 5s
       timeout: 5s
       retries: 10
-    volumes:
-      - mysql_data:var/lib/mysql
-
+      start_period: 120s
 volumes:
   mysql_data:
+
+
+

@@ -98,8 +98,8 @@ class MainMenu:
                         author = input("Enter author: ")
                         category = input("Enter category: ")
                         while True:
-                            copies_input = input("Enter number of copies (or 9 to cancel): ")
-                            if copies_input == "9":
+                            copies_input = input("Enter number of copies (or 00 to cancel): ")
+                            if copies_input == "00":
                                 print("Operation cancelled.")
                                 break
                             try:
