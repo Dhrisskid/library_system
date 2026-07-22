@@ -1,4 +1,4 @@
-from sqlalchemy import String, Integer
+from sqlalchemy import String, Integer, Text
 from sqlalchemy.orm import Mapped, mapped_column
 from persistence.database import Base
 
@@ -9,6 +9,7 @@ class Book(Base):
     title: Mapped[str] = mapped_column(String(200), nullable=False)
     author: Mapped[str] = mapped_column(String(100), nullable=False)
     category: Mapped[str] = mapped_column(String(50), nullable=False)
+    summary: Mapped[str] = mapped_column(Text, nullable=True)
     total_copies: Mapped[int] = mapped_column(Integer, default=1, nullable=False)
     borrowed_copies: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 

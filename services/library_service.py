@@ -167,5 +167,9 @@ class LibraryService:
         if not self.user_repo.delete(user):
             raise ValueError("Failed to delete user")
 
+    def get_all_borrowed_records(self) -> List[BorrowRecord]:
+        return self.borrow_repo.get_all_active()
+    
+
 
             
