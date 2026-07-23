@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Library System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Library Management System</h1>
+
+<nav>
+  <button data-view="catalog">Catalog</button>
+  <button data-view="borrow">Borrow / Return</button>
+  <button data-view="admin">Add Book / Register User</button>
+  <button data-view="chat">Chatbot</button>
+</nav>
+
+<section id="view-catalog" class="view">
+  <h2>Catalog</h2>
+  <input id="search-input" placeholder="Search by title, author, or category">
+  <select id="search-field">
+    <option value="title">Title</option>
+    <option value="author">Author</option>
+    <option value="category">Category</option>
+  </select>
+  <button id="search-btn">Search</button>
+  <button id="show-all-btn">Show All</button>
+  <table>
+    <thead>
+      <tr><th>ISBN</th><th>Title</th><th>Author</th><th>Category</th><th>Available</th></tr>
+    </thead>
+    <tbody id="catalog-body"></tbody>
+  </table>
+</section>
+
+<section id="view-borrow" class="view" style="display:none">
+  <h2>Borrow a Book</h2>
+  <input id="borrow-title" placeholder="Book title">
+  <input id="borrow-username" placeholder="Your username">
+  <button id="borrow-btn">Borrow</button>
+
+  <h2>Return a Book</h2>
+  <input id="return-title" placeholder="Book title">
+  <input id="return-username" placeholder="Your username">
+  <button id="return-btn">Return</button>
+
+  <h2>Currently Borrowed</h2>
+  <table>
+    <thead>
+      <tr><th>User</th><th>Book</th><th>Borrowed On</th></tr>
+    </thead>
+    <tbody id="borrowed-body"></tbody>
+  </table>
+</section>
+
+<section id="view-admin" class="view" style="display:none">
+  <h2>Add Book</h2>
+  <input id="book-isbn" placeholder="ISBN">
+  <input id="book-title" placeholder="Title">
+  <input id="book-author" placeholder="Author">
+  <input id="book-category" placeholder="Category">
+  <input id="book-copies" type="number" placeholder="Copies" min="1">
+  <button id="add-book-btn">Add Book</button>
+
+  <h2>Register User</h2>
+  <input id="user-id" placeholder="User ID">
+  <input id="user-name" placeholder="Full Name">
+  <input id="user-username" placeholder="Username">
+  <button id="register-user-btn">Register</button>
+</section>
+
+<section id="view-chat" class="view" style="display:none">
+  <h2>Ask the Librarian</h2>
+  <div id="chat-log"></div>
+  <input id="chat-input" placeholder="Ask about the catalog...">
+  <button id="chat-send-btn">Send</button>
+</section>
+
+<p id="status-msg"></p>
+
+<script src="app.js"></script>
+</body>
+</html>
+
+
+

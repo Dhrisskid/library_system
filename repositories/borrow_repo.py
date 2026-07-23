@@ -83,3 +83,14 @@ class BorrowRepository:
         ).options(selectinload(BorrowRecord.book))   # Eager load the related book
         # .all() always returns a list (empty if no rows)
         return session.scalars(stmt).all()
+
+
+    @with_session
+    def get_all_active(self, session: Session = None) -> List[BorrowRecord]:
+        stmt = select(BorrowRecord).where(
+            BorrowRecord.return_date.is_(None)
+        ).options(
+            selectinload(BorrowRecord.book),  # Eager load the book data
+            selectinload(BorrowRecord.user)   # Eager load the user data
+        )
+        return session.scalars(stmt).all()
